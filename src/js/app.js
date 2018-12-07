@@ -57,7 +57,7 @@ web3 = new Web3(App.web3Provider);
       App.contracts.Orders.setProvider(App.web3Provider);
     
       // Use our contract to retrieve and mark the adopted pets
-      return App.markAdopted();
+      return App.orderFulfilled();
     });
     return App.bindEvents();
   },
@@ -66,7 +66,7 @@ web3 = new Web3(App.web3Provider);
     $(document).on('click', '.btn-adopt', App.handleAdopt);
   },
 
-  markAdopted: function(adopters, account) {
+  orderFulfilled: function(adopters, account) {
     var orderInstance;
 
 App.contracts.Orders.deployed().then(function(instance) {
@@ -102,9 +102,9 @@ web3.eth.getAccounts(function(error, accounts) {
     adoptionInstance = instance;
 
     // Execute adopt as a transaction by sending account
-    return adoptionInstance.adopt(petId, {from: account});
+    return adoptionInstance.order(petId, {from: account});
   }).then(function(result) {
-    return App.markAdopted();
+    return App.orderFulfilled();
   }).catch(function(err) {
     console.log(err.message);
   });
