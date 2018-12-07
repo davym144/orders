@@ -10,7 +10,7 @@ contract Orders {
     return siteId;
   }
 
-  function getSiteOrderers() public view returns (address[16]) {
+  function getSiteOrders() public view returns (address[16]) {
     return siteOrderers;
   }
 }
