@@ -102,7 +102,7 @@ web3.eth.getAccounts(function(error, accounts) {
     adoptionInstance = instance;
 
     // Execute adopt as a transaction by sending account
-    return adoptionInstance.order(petId, {from: account});
+    return adoptionInstance.order(orderId, {from: account});
   }).then(function(result) {
     return App.orderFulfilled();
   }).catch(function(err) {

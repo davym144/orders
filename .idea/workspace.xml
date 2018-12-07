@@ -37,7 +37,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="30" />
-          <entry key="js" value="163" />
+          <entry key="js" value="168" />
           <entry key="json" value="11" />
           <entry key="sol" value="49" />
         </counts>
@@ -46,7 +46,7 @@
         <counts>
           <entry key="HTML" value="30" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="163" />
+          <entry key="JavaScript" value="168" />
           <entry key="PLAIN_TEXT" value="49" />
         </counts>
       </usages-collector>
@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="244">
+              <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -127,7 +127,6 @@
       <find>age</find>
       <find>§</find>
       <find>App</find>
-      <find>petId</find>
       <find>adoptio</find>
       <find>Adoption</find>
       <find>panel-pet</find>
@@ -135,6 +134,7 @@
       <find>markAdopted</find>
       <find>order</find>
       <find>adopters</find>
+      <find>petId</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -258,12 +258,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544214967159</updated>
-      <workItem from="1544214968346" duration="4045000" />
+      <workItem from="1544214968346" duration="4155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4045000" />
+    <option name="totallyTimeSpent" value="4155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="0" />
@@ -357,8 +357,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="244">
+          <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
         </state>
       </provider>
     </entry>
