@@ -1,16 +1,16 @@
 pragma solidity ^0.4.17;
 
-contract Orders {
+contract Adoption {
 
-  address[16] public siteOrderers;
+  address[16] public adopters;
 
-  function adopt(uint8 siteId) public returns (uint8) {
-    require(siteId >= 0 && siteId <= 15);
-    siteOrderers[siteId] = msg.sender;
-    return siteId;
+  function adopt(uint8 petId) public returns (uint8) {
+    require(petId >= 0 && petId <= 15);
+    adopters[petId] = msg.sender;
+    return petId;
   }
 
-  function getsiteOrderers() public view returns (address[16]) {
-    return siteOrderers;
+  function getAdopters() public view returns (address[16]) {
+    return adopters;
   }
 }

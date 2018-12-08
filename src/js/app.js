@@ -48,16 +48,16 @@ web3 = new Web3(App.web3Provider);
   },
 
   initContract: function() {
-    $.getJSON('Orders.json', function(data) {
+    $.getJSON('Adoption.json', function(data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract
-      var OrdersArtifact = data;
-      App.contracts.Orders = TruffleContract(OrdersArtifact);
+      var AdoptionArtifact = data;
+      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
     
       // Set the provider for our contract
-      App.contracts.Orders.setProvider(App.web3Provider);
+      App.contracts.Adoption.setProvider(App.web3Provider);
     
       // Use our contract to retrieve and mark the adopted pets
-      return App.orderFulfilled();
+      return App.markAdopted();
     });
     return App.bindEvents();
   },
@@ -66,17 +66,17 @@ web3 = new Web3(App.web3Provider);
     $(document).on('click', '.btn-adopt', App.handleAdopt);
   },
 
-  orderFulfilled: function(adopters, account) {
-    var orderInstance;
+  markAdopted: function(adopters, account) {
+    var adoptionInstance;
 
-App.contracts.Orders.deployed().then(function(instance) {
-  orderInstance = instance;
+App.contracts.Adoption.deployed().then(function(instance) {
+  adoptionInstance = instance;
 
-  return orderInstance.getSiteOrders.call();
-}).then(function(orders) {
-  for (i = 0; i < orders.length; i++) {
-    if (orders[i] !== '0x0000000000000000000000000000000000000000') {
-      $('.panel-order').eq(i).find('button').text('Success').attr('disabled', true);
+  return adoptionInstance.getAdopters.call();
+}).then(function(adopters) {
+  for (i = 0; i < adopters.length; i++) {
+    if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
+      $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
     }
   }
 }).catch(function(err) {
@@ -98,13 +98,13 @@ web3.eth.getAccounts(function(error, accounts) {
 
   var account = accounts[0];
 
-  App.contracts.Orders.deployed().then(function(instance) {
+  App.contracts.Adoption.deployed().then(function(instance) {
     adoptionInstance = instance;
 
     // Execute adopt as a transaction by sending account
-    return adoptionInstance.order(orderId, {from: account});
+    return adoptionInstance.adopt(petId, {from: account});
   }).then(function(result) {
-    return App.orderFulfilled();
+    return App.markAdopted();
   }).catch(function(err) {
     console.log(err.message);
   });
